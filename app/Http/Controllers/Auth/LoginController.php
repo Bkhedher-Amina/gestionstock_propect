@@ -70,7 +70,7 @@ class LoginController extends Controller
         {
             $user = auth()->user();
         }else{
-            Toastr::error('fail, WRONG USERNAME OR PASSWORD:)','Error');
+            Toastr::error('échec, MAUVAIS USERNAME OU MOT DE PASSE :)','Erreur');
             return back();
         }
 
@@ -81,20 +81,20 @@ class LoginController extends Controller
 
             'name'        => $email,
             'email'       => $email,
-            'description' => 'has log in',
+            'description' => "s'est connecté",
             'date_time'   => $todayDate,
         ];
         if (Auth::attempt(['email'=>$email,'password'=>$password,'status'=>'Active'])) {
             DB::table('activity_logs')->insert($activityLog);
-            Toastr::success('Login successfully :)','Success');
+            Toastr::success('Se connecter avec succès :)','Succès');
             return redirect()->intended('home');
         }elseif (Auth::attempt(['email'=>$email,'password'=>$password,'status'=> null])) {
             DB::table('activity_logs')->insert($activityLog);
-            Toastr::success('Login successfully :)','Success');
+            Toastr::success('Se connecter avec succès:)','Succès');
             return redirect()->intended('home');
         }
         else{
-            Toastr::error('fail, WRONG USERNAME OR PASSWORD :)','Error');
+            Toastr::error('échec, MAUVAIS USERNAME OU MOT DE PASSE :)','Erreur');
             return redirect('login');
         }
 
@@ -115,12 +115,12 @@ class LoginController extends Controller
 
             'name'        => $name,
             'email'       => $email,
-            'description' => 'has logged out',
+            'description' => "s'est déconnecté",
             'date_time'   => $todayDate,
         ];
         DB::table('activity_logs')->insert($activityLog);
         Auth::logout();
-        Toastr::success('Logout successfully :)','Success');
+        Toastr::success('Déconnexion avec succès :)','Succèss');
         return redirect('login');
     }
 

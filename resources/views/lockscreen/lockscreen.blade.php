@@ -3,14 +3,14 @@
     <div id="auth">
         <div class="row h-100">
             <div class="col-lg-5 col-12">
-                <div id="auth-left">
+               <!-- <div id="auth-left">
                     <div class="auth-logo">
-                        <a href="{{ route('home') }}"><img src="assets/images/logo/logo.png" alt="Logo"></a>
-                    </div>
+                        <a href="{route('home') "><img src="assets/images/logo/logo.png" alt="Logo"></a>
+                    </div> -->
                     {{-- message --}}
                     {!! Toastr::message() !!}
-                    <h1 class="auth-title">Lock Screen.</h1>
-                    <p class="auth-subtitle mb-5">Lock screen system managenent</p>
+                    <h1 class="auth-title">Écran de verrouillage</h1>
+                    <p class="auth-subtitle mb-5">Gestion du système de verrouillage des écrans</p>
                     @if(session()->has('error'))
                         <div class="text-danger text-center text-bold">
                             {{ session()->get('error') }}
@@ -30,7 +30,7 @@
                                 </span>
                             @enderror
                         </div>
-                        <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Lock Screen</button>
+                        <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Verrouillage de l'écran</button>
                     </form>
                 </div>
             </div>

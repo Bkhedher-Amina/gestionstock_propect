@@ -10,7 +10,7 @@
         </a>
     </header>
     <div class="page-heading">
-        <h3>Profile Statistics</h3>
+        <h3>Statistiques des profiles</h3>
     </div>
     {{-- message --}}
     {!! Toastr::message() !!}
@@ -28,7 +28,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-8">
-                                        <h6 class="text-muted font-semibold">Activity Log</h6>
+                                        <h6 class="text-muted font-semibold">Activitées de Connexion</h6>
                                         <h6 class="font-extrabold mb-0">{{ $activity_logs }}</h6>
                                     </div>
                                 </div>
@@ -45,7 +45,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-8">
-                                        <h6 class="text-muted font-semibold">User Activity log</h6>
+                                        <h6 class="text-muted font-semibold">Activité utilisateurs Connecté</h6>
                                         <h6 class="font-extrabold mb-0">{{ $user_activity_logs }}</h6>
                                     </div>
                                 </div>
@@ -62,7 +62,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-8">
-                                        <h6 class="text-muted font-semibold">User Total</h6>
+                                        <h6 class="text-muted font-semibold">Totale Utilisateur</h6>
                                         <h6 class="font-extrabold mb-0">{{ $users }}</h6>
                                     </div>
                                 </div>
@@ -79,7 +79,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-8">
-                                        <h6 class="text-muted font-semibold">Saved Record</h6>
+                                        <h6 class="text-muted font-semibold">dossier sauvegardé</h6>
                                         <h6 class="font-extrabold mb-0">{{ $staff }}</h6>
                                     </div>
                                 </div>
@@ -91,7 +91,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4>Profile Visit</h4>
+                                <h4>Visite des profiles</h4>
                             </div>
                             <div class="card-body">
                                 <div id="chart-profile-visit"></div>
@@ -103,7 +103,7 @@
                     <div class="col-12 col-xl-4">
                         <div class="card">
                             <div class="card-header">
-                                <h4>Profile Visit</h4>
+                                <h4>Visite des Profiles</h4>
                             </div>
                             <div class="card-body">
                                 <div class="row">
@@ -235,7 +235,7 @@
                         <div class="modal-dialog modal-dialog-scrollable" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="myModalLabel1">User Profile</h5>
+                                    <h5 class="modal-title" id="myModalLabel1">Profil de l'utilisateur</h5>
                                     <button type="button" class="close rounded-pill" data-bs-dismiss="modal" aria-label="Close">
                                         <i data-feather="x"></i>
                                     </button>
@@ -244,7 +244,7 @@
                                     <div class="form-body">
                                         <div class="row">
                                             <div class="col-md-4">
-                                                <label>Full Name</label>
+                                                <label>Nom Et Prénom</label>
                                             </div>
                                             <div class="col-md-8">
                                                 <div class="form-group has-icon-left">
@@ -257,7 +257,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
-                                                <label>Email Address</label>
+                                                <label>Addresse Email</label>
                                             </div>
                                             <div class="col-md-8">
                                                 <div class="form-group has-icon-left">
@@ -270,7 +270,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
-                                                <label>Mobile Number</label>
+                                                <label>Numéro de Mobile</label>
                                             </div>
                                             <div class="col-md-8">
                                                 <div class="form-group has-icon-left">
@@ -282,9 +282,9 @@
                                                     </div>
                                                 </div>
                                             </div>
-                
+
                                             <div class="col-md-4">
-                                                <label>Status</label>
+                                                <label>Statut</label>
                                             </div>
                                             <div class="col-md-8">
                                                 <div class="form-group has-icon-left">
@@ -327,7 +327,7 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <h4>Recent Messages</h4>
+                        <h4>Messages récents</h4>
                     </div>
                     <div class="card-content pb-4">
                         <div class="recent-message d-flex px-4 py-3">
@@ -335,8 +335,8 @@
                                 <img src="assets/images/faces/4.jpg">
                             </div>
                             <div class="name ms-4">
-                                <h5 class="mb-1">Hank Schrader</h5>
-                                <h6 class="text-muted mb-0">@johnducky</h6>
+                                <h5 class="mb-1">Amina b'kh</h5>
+                                <h6 class="text-muted mb-0">@Aminabkh</h6>
                             </div>
                         </div>
                         <div class="recent-message d-flex px-4 py-3">
@@ -344,8 +344,8 @@
                                 <img src="assets/images/faces/5.jpg">
                             </div>
                             <div class="name ms-4">
-                                <h5 class="mb-1">Dean Winchester</h5>
-                                <h6 class="text-muted mb-0">@imdean</h6>
+                                <h5 class="mb-1">Sirine Zribi</h5>
+                                <h6 class="text-muted mb-0">@SirineZribi</h6>
                             </div>
                         </div>
                         <div class="recent-message d-flex px-4 py-3">
@@ -353,19 +353,18 @@
                                 <img src="assets/images/faces/1.jpg">
                             </div>
                             <div class="name ms-4">
-                                <h5 class="mb-1">John Dodol</h5>
-                                <h6 class="text-muted mb-0">@dodoljohn</h6>
+                                <h5 class="mb-1">Sarah Sessi</h5>
+                                <h6 class="text-muted mb-0">@sarahsessi</h6>
                             </div>
                         </div>
                         <div class="px-4">
-                            <button class='btn btn-block btn-xl btn-light-primary font-bold mt-3'>Start
-                                Conversation</button>
+                            <button class='btn btn-block btn-xl btn-light-primary font-bold mt-3'>Démarrer Conversation</button>
                         </div>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-header">
-                        <h4>Visitors Profile</h4>
+                        <h4>Profile des visiteurs</h4>
                     </div>
                     <div class="card-body">
                         <div id="chart-visitors-profile"></div>
@@ -378,11 +377,11 @@
     <footer>
         <div class="footer clearfix mb-0 text-muted">
             <div class="float-start">
-                <p>2021 &copy; Soeng Souy</p>
+                <p>2021 &copy; Web Prospect</p>
             </div>
             <div class="float-end">
-                <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
-                href="http://soengsouy.com">Soeng Souy</a></p>
+                <p>Créer <span class="text-danger"><i class="bi bi-heart"></i></span> par <a
+                href="http://www.webprospect.tn/">Web Prospect</a></p>
             </div>
         </div>
     </footer>

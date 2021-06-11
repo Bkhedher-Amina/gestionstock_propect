@@ -1,9 +1,21 @@
 @extends('layouts.master')
 @section('menu')
-@extends('sidebar.viewrecord')
+@extends('sidebar.Dashboard')
 @endsection
 @section('content')
 <div id="main">
+    <style>
+        .avatar.avatar-im .avatar-content, .avatar.avatar-xl img {
+            width: 40px !important;
+            height: 40px !important;
+            font-size: 1rem !important;
+        }
+        .form-group[class*=has-icon-].has-icon-lefts .form-select {
+            padding-left: 2rem;
+        }
+
+    </style>
+
     <header class="mb-3">
         <a href="#" class="burger-btn d-block d-xl-none">
             <i class="bi bi-justify fs-3"></i>
@@ -13,156 +25,144 @@
         <div class="page-title">
             <div class="row">
                 <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>View Record</h3>
-                    <p class="text-subtitle text-muted">staff information list</p>
+                    <h3>Commande Fournisseur</h3>
+
                 </div>
                 <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{ route('home') }}">Dashboard</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">View Detail</li>
+                            <li class="breadcrumb-item"><a href="{{ route('home') }}">Tableau de Bord</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Commande Fournisseur</li>
                         </ol>
                     </nav>
                 </div>
             </div>
         </div>
-       
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Dispay Information</h4>
+                    <h4 class="card-title">Modifier les Commandes Fournisseur</h4>
                 </div>
                 <div class="card-content">
                     <div class="card-body">
-                        <form class="form form-horizontal" action="{{ route('form/view/update') }}" method="POST">
+                        <form class="form form-horizontal" action="{{ route('update') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <input type="hidden" name="id" value="{{ $data[0]->id }}">
                             <div class="form-body">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <label>ID</label>
+                                        <label>Numéro de Fournisseur</label>
                                     </div>
                                     <div class="col-md-8">
                                         <div class="form-group has-icon-left">
                                             <div class="position-relative">
                                                 <input type="text" class="form-control"
-                                                    placeholder="Enter user id" id="first-name-icon" name="rec_id" value="{{ $data[0]->rec_id }}" readonly>
+                                                    placeholder="Numéro cin" id="first-name-icon" name="fullName" value="{{ $data[0]->cin }}">
                                                 <div class="form-control-icon">
-                                                    <i class="bi bi-person"></i>
+                                                    <i class="bi bi-person-lines-fill"></i>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    
                                     <div class="col-md-4">
-                                        <label>Full Name</label>
+                                        <label>Date</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="form-group has-icon-left">
+                                            <div class="position-relative">
+                                                <input type="date" class="form-control"
+                                                    id="first-name-icon" name="date" value="{{ $data[0]->date }}">
+                                                <div class="form-control-icon">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label>Client</label>
                                     </div>
                                     <div class="col-md-8">
                                         <div class="form-group has-icon-left">
                                             <div class="position-relative">
                                                 <input type="text" class="form-control"
-                                                    placeholder="Enter full name" id="first-name-icon" name="fullName" value="{{ $data[0]->full_name }}">
+                                                    placeholder="client" id="first-name-icon" name="client" value="{{ $data[0]->client}}">
                                                 <div class="form-control-icon">
-                                                    <i class="bi bi-person"></i>
+                                                    <i class="bi bi-person-plus"></i>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
-                                     <div class="col-md-4">
-                                        <label>Sex</label>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="sex" value="Male" {{ ($data[0]->sex=="Male")? "checked" : "" }} id="sex1">
-                                            <label class="form-check-label" for="sex1">Male</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="sex" value="Female" {{ ($data[0]->sex=="Female")? "checked" : "" }} id="sex2">
-                                            <label class="form-check-label" for="sex2">Female</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="sex"  value="Other" {{ ($data[0]->sex=="Other")? "checked" : "" }} id="sex3">
-                                            <label class="form-check-label" for="sex3">Other</label>
-                                        </div>
-                                    </div>
-
                                     <div class="col-md-4">
-                                        <label>Email Address</label>
+                                        <label>Net Hors Taxe</label>
                                     </div>
                                     <div class="col-md-8">
                                         <div class="form-group has-icon-left">
                                             <div class="position-relative">
-                                                <input type="email" class="form-control"
-                                                    placeholder="Enter email" id="first-name-icon" name="emailAddress" value="{{ $data[0]->email_address }}">
+                                                <input type="number" step="0.01" class="form-control"
+                                                    placeholder="Net Hors Tax" id="first-name-icon" name="netHt" value="{{ $data[0]->netHt }}">
                                                 <div class="form-control-icon">
-                                                    <i class="bi bi-envelope"></i>
+                                                    <i class="bi bi-coin"></i>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <label>Mobile Number</label>
+                                        <label>Total taxe de valeur ajoutée"</label>
                                     </div>
                                     <div class="col-md-8">
                                         <div class="form-group has-icon-left">
                                             <div class="position-relative">
                                                 <input type="number" class="form-control"
-                                                    placeholder="Enter phone number" name="phone_number" value="{{ $data[0]->phone_number }}">
+                                                    placeholder="Total TVA " name="total_tva" value="{{ $data[0]->total_tva }}">
                                                 <div class="form-control-icon">
-                                                    <i class="bi bi-phone"></i>
+                                                    <i class="bi bi-coin"></i>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-        
+
                                     <div class="col-md-4">
-                                        <label>Position</label>
+                                        <label>Total Taxe Comprise"</label>
                                     </div>
                                     <div class="col-md-8">
                                         <div class="form-group has-icon-left">
                                             <div class="position-relative">
-                                                <input type="text" class="form-control"
-                                                    placeholder="Enter position" name="position" value="{{ $data[0]->position }}">
+                                                <input type="number" class="form-control"
+                                                    placeholder="Total TTC " name="total_ttc" value="{{ $data[0]->total_ttc }}">
                                                 <div class="form-control-icon">
-                                                    <i class="bi bi-bag-check-fill"></i>
+                                                    <i class="bi bi-coin"></i>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
-                                        <label>Departement</label>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="form-group has-icon-left">
-                                            <div class="position-relative">
-                                                <input type="text" class="form-control"
-                                                    placeholder="Enter departement" name="department" value="{{ $data[0]->department }}">
-                                                <div class="form-control-icon">
-                                                    <i class="bi bi-folder-fill"></i>
-                                                </div>
+                                </fieldset>
+                               </div>
+                              </div>
+                              <div class="col-md-4">
+                                <label>Net a Payer"</label>
+                            </div>
+                              <div class="col-md-8">
+                                <div class="form-group has-icon-left">
+                                    <div class="position-relative">
+                                        <input type="number" class="form-control"
+                                            placeholder="Net a payer " name="netapayer" value="{{ $data[0]->netapayer }}">
+                                        <div class="form-control-icon">
+                                            <i class="bi bi-coin"></i>
+                                              </div>
+                                             </div>
                                             </div>
+                                          </div>
+                                         </fieldset>
                                         </div>
                                     </div>
-        
-                                    <div class="col-md-4">
-                                        <label>Salary</label>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="form-group has-icon-left">
-                                            <div class="position-relative">
-                                                <input type="text" class="form-control"
-                                                    placeholder="Enter salary" name="salary" value="{{ $data[0]->salary }}">
-                                                <div class="form-control-icon">
-                                                    <i class="bi bi-envelope-fill"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-    
+
                                     <div class="col-12 d-flex justify-content-end">
-                                        <button type="submit" class="btn btn-primary me-1 mb-1">Save</button>
-                                        <a href="{{ route('form/view/detail') }}" class="btn btn-light-secondary me-1 mb-1">Back</a>
+                                        <button type="submit"
+                                            class="btn btn-primary me-1 mb-1">Mettre à jour</button>
+                                        <a  href="{{ route('userManagement') }}"
+                                            class="btn btn-light-secondary me-1 mb-1">Retour</a>
                                     </div>
                                 </div>
                             </div>
@@ -175,11 +175,11 @@
     <footer>
         <div class="footer clearfix mb-0 text-muted ">
             <div class="float-start">
-                <p>2021 &copy; Soeng Souy</p>
+                <p>2021 &copy; Web Prospect</p>
             </div>
             <div class="float-end">
                 <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
-                href="http://soengsouy.com">Soeng Souy</a></p>
+                href="https://www.webprospect.tn/">Web Prospect</a></p>
             </div>
         </div>
     </footer>

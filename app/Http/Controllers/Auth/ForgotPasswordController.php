@@ -31,9 +31,9 @@ class ForgotPasswordController extends Controller
         Mail::send('auth.verify',['token' => $token], function($message) use ($request) {
                   $message->from($request->email);
                   $message->to('your email');
-                  $message->subject('Reset Password Notification');
+                  $message->subject('Notification de réinitialisation du mot de passe');
                });
 
-        return back()->with('message', 'We have e-mailed your password reset link!');
+        return back()->with('message', 'Nous vous avons envoyé par Email le lien de réinitialisation de votre mot de passe !');
     }
 }
